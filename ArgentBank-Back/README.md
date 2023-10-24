@@ -30,7 +30,7 @@ mongo --version
 
 ```bash
 # Install dependencies
-npm install
+yarn install
 
 # Start local dev server
 yarn run dev:server
