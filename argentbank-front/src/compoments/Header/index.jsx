@@ -1,3 +1,5 @@
+import argentBankLogo from  '../../assets/img/argentBankLogo.webp'
+
 function Header() {
     return (
       <header>
@@ -5,7 +7,7 @@ function Header() {
             <a class="main-nav-logo" href="./index.html">
                 <img
                     class="main-nav-logo-image"
-                    src="./img/argentBankLogo.png"
+                    src={argentBankLogo}
                     alt="Argent Bank Logo"
                 />
                 <h1 class="sr-only">Argent Bank</h1>

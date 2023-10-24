@@ -1,2 +1,6 @@
+@import './utils/variables';
+@import './utils/mixins';
+@import './base/normalize';
 @import '../compoments/Header/header';
+@import '../pages/Home/home';
 @import '../compoments/Footer/footer';
