@@ -5,7 +5,7 @@ import argentBankLogo from  '../../assets/img/argentBankLogo.webp';
 function Header() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
-    const firstName = useSelector((state) => state.user.firstName);
+    const userName = useSelector((state) => state.user.userName);
 
     const signout = (e) => {
         e.preventDefault();
@@ -25,11 +25,11 @@ function Header() {
                 <h1 className="sr-only">Argent Bank</h1>
             </Link>
             <div>
-            {firstName ? 
+            {userName ? 
                 <div>
                     <Link className="main-nav-item" to="/User">
                     <i className="fa fa-user-circle"></i>
-                    <span> {firstName}</span>
+                    <span> {userName}</span>
                     </Link>
                     <Link className="main-nav-item" onClick={signout} to="/">
                     <i className="fa fa-sign-out"></i>

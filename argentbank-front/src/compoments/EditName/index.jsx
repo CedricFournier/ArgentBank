@@ -1,8 +1,12 @@
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { userEdit } from '../../redux/userReducer';
+import Button, { BUTTON_TYPES } from '../../composants/Button';
+import Field, { FIELD_TYPES } from '../../composants/Field';
+import { userEdit } from '../../redux/apiuser';
 
-function EditName() {
+import "./style.scss";
+
+function EditName(props) {
     const form = useRef();
     const dispatch = useDispatch();
     const userName = useSelector((state) => state.user.userName);
@@ -11,7 +15,6 @@ function EditName() {
     const lastName = useSelector((state) => state.user.lastName);
 
     const handleForm = async (e) => {
-        
         const postData ={
             userName: form.current[0].value,
             token: token
@@ -20,29 +23,46 @@ function EditName() {
     };
 
     return (
-      <div>
-        <h2>Edit user info</h2>
+      <div className="diveditname">
+        <h2 className='h2editname'>Edit user info</h2>
         <form ref={form}>
-            <label>
-                User name: 
-                <input type="text" id="username" placeholder={userName} required/>
-            </label>
-            <label>
-                First name: 
-                <input type="text" id="username" defaultValue={firstName} disabled="disabled"/>
-            </label>
-            <label>
-                last name: 
-                <input type="text" id="username" defaultValue={lastName} disabled="disabled"/>
-            </label>
+            <Field 
+                type={FIELD_TYPES.INPUT_TEXT} 
+                content="User name : " 
+                id="editusername"
+                label="labeleditname" 
+                placeholder={userName}
+            />
+            <Field 
+                type={FIELD_TYPES.INPUT_TEXT} 
+                content="First name: " 
+                id="firstname" 
+                label="labeleditname" 
+                defaultValue={firstName} 
+                disabled="disabled" 
+            />
+            <Field 
+                type={FIELD_TYPES.INPUT_TEXT} 
+                content="Last name : " 
+                id="lastname" 
+                label="labeleditname" 
+                defaultValue={lastName} 
+                disabled="disabled" 
+            />
         </form>
-        <div>
-            <button className="transaction-button"
-                onClick={(e) => {
-                    handleForm();
-                }}
-            >Save</button>
-            <button className="transaction-button">Cancel</button>
+        <div className='btnedit'>
+            <Button 
+                class="button transaction-button" 
+                type={BUTTON_TYPES.DEFAULT} 
+                content="Save"  
+                click={handleForm}
+            />
+            <Button 
+                class="button transaction-button" 
+                type ={BUTTON_TYPES.DEFAULT} 
+                content="Cancel" 
+                click={props.click} 
+            />
         </div>
       </div>
     )

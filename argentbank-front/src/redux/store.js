@@ -4,5 +4,6 @@ import userSlice from "./userReducer";
 export default configureStore({
   reducer: {
     user: userSlice,
+    devTools: true,
   },
 });

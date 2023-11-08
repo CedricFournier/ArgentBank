@@ -1,22 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from './compoments/Header';
+import { Route, Routes } from "react-router-dom";
+import Layout from './compoments/Layout';
 import Home from './pages/Home';
-import Footer from './compoments/Footer';
 import Signin from './pages/Signin';
 import User from './pages/User';
+import Error from './pages/Error';
+import RequireAuth from './compoments/RequireAuth.jsx';
 
 function App() {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Signin" element={<Signin />} />
-        <Route path="/User" element={<User />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path='/Signin' element={<Signin />} />
+        
+        <Route element={<RequireAuth />}>
+          <Route path='/User' element={<User />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }
 

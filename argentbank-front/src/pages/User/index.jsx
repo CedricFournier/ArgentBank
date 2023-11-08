@@ -1,44 +1,62 @@
+import { useState } from "react";
 import EditName from "../../compoments/EditName"
+import Button, { BUTTON_TYPES } from "../../composants/Button"
 
 function User() {
+    const account = [
+        {   
+            "id" : "1",
+            "name" : "Checking",
+            "balance" : "2082.79",
+            "multiplier" : "8349",
+            "description" : "Available Balance"
+        },
+        {
+            "id" : "2",
+            "name" : "Savings",
+            "balance" : "10928.42",
+            "multiplier" : "6712",
+            "description" : "Available Balance"
+        },
+        {
+            "id" : "3",
+            "name" : "Credit Card",
+            "balance" : "184.30",
+            "multiplier" : "8349",
+            "description" : "Current Balance"
+        }
+    ];
+
+    const [open, setOpen] = useState(false)
+    const toggle = () => {
+        setOpen(!open);
+      };
+
     return (
         <main className="main bg-dark">
             <div className="header">
-                <h1>Welcome back<br />Tony Jarvis!</h1>
-                <button className="edit-button">Edit Name</button>
-                <EditName />
+            {!open ? 
+                <div>
+                    <h1>Welcome back<br />Tony Jarvis!</h1>
+                    <Button class="button edit-button" type={BUTTON_TYPES.DEFAULT} content="Edit Name" click={toggle} /> 
+                </div>
+                : 
+                <EditName click={toggle}/>
+            }
             </div>
             <h2 className="sr-only">Accounts</h2>
-            <section className="account">
-                <div className="account-content-wrapper">
-                    <h3 className="account-title">Argent Bank Checking (x8349)</h3>
-                    <p className="account-amount">$2,082.79</p>
-                    <p className="account-amount-description">Available Balance</p>
-                </div>
-                <div className="account-content-wrapper cta">
-                    <button className="transaction-button">View transactions</button>
-                </div>
-            </section>
-            <section className="account">
-                <div className="account-content-wrapper">
-                    <h3 className="account-title">Argent Bank Savings (x6712)</h3>
-                    <p className="account-amount">$10,928.42</p>
-                    <p className="account-amount-description">Available Balance</p>
-                </div>
-                    <div className="account-content-wrapper cta">
-                    <button className="transaction-button">View transactions</button>
-                </div>
-            </section>
-            <section className="account">
-                <div className="account-content-wrapper">
-                    <h3 className="account-title">Argent Bank Credit Card (x8349)</h3>
-                    <p className="account-amount">$184.30</p>
-                    <p className="account-amount-description">Current Balance</p>
-                </div>
-                <div className="account-content-wrapper cta">
-                    <button className="transaction-button">View transactions</button>
-                </div>
-            </section>
+            {account.map((account, index) => (
+              <section key={index} className="account">
+              <div className="account-content-wrapper">
+                  <h3 className="account-title">Argent Bank {account.name} (x{account.multiplier})</h3>
+                  <p className="account-amount">${account.balance}</p>
+                  <p className="account-amount-description">{account.description}</p>
+              </div>
+              <div className="account-content-wrapper cta">
+                  <Button class="button transaction-button" content="View transactions" />
+              </div>
+          </section>
+            ))}
         </main>
     )
   }

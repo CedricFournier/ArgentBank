@@ -1,7 +1,11 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userLog } from "../../redux/userReducer";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { userLog } from "../../redux/apiuser";
+import Button, { BUTTON_TYPES } from "../../composants/Button"
+import Field, { FIELD_TYPES } from "../../composants/Field";
+
+import "./style.scss";
 
 function Signin() {
     const form = useRef();
@@ -9,44 +13,37 @@ function Signin() {
     const navigate = useNavigate();
     const token = useSelector((state) => state.user.token);
 
-    if (token) {
-        navigate("/User");
-      }
-
     const handleForm = async (e) => {
         e.preventDefault();
-        const postData ={
+        const postData = {
             email: form.current[0].value,
             password: form.current[1].value,
         };
-        dispatch(userLog(postData))
-    };
-
+        dispatch(userLog(postData));
+    }
+    
+    useEffect(() => {
+        if(token) {
+            navigate("/User")
+        }
+    })
+    
     return (
         <main className="main bg-dark">
             <section className="sign-in-content">
                 <i className="fa fa-user-circle sign-in-icon"></i>
                 <h1>Sign In</h1>
                 <form ref={form} onSubmit={e => handleForm(e)}>
-                    <div className="input-wrapper">
-                        <label>
-                            Username
-                            <input type="text" id="username" required/>
-                        </label>
-                    </div>
-                    <div className="input-wrapper">
-                        <label>
-                            Password
-                            <input type="password" id="password" required/>
-                        </label>
-                    </div>
+                    <Field type={FIELD_TYPES.INPUT_MAIL} content="Username" id="username" />
+                    <Field type={FIELD_TYPES.INPUT_PASSWORD} content="Password" id="password" />
                     <div className="input-remember">
                         <label>
                             <input type="checkbox" id="remember-me" />
                             Remember me
                         </label>
                     </div>
-                    <input className="sign-in-button" type="submit" value="Sign in" />
+                    <p id="errlogin">Erreur dans l’identifiant ou le mot de passe</p>
+                    <Button type={BUTTON_TYPES.SUBMIT} class="button sign-in-button" content="Sign in"/>
                 </form>
             </section>
         </main>
