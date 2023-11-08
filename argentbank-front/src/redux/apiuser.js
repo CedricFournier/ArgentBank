@@ -10,14 +10,17 @@ export const userLog = createAsyncThunk(
         },
         body: JSON.stringify({ email, password }),
       })
-      console.log(rlogin)
       if (rlogin.status === 200) {
         const rtoken = await rlogin.json();
         const token = rtoken.body.token;
         const userp = await userProfil(token);
         const user = userp.body
         return { email: email, token: token, firstName: user.firstName,
-          lastName: user.lastName, userName: user.userName };
+          lastName: user.lastName, userName: user.userName,
+           status: rtoken.status, message: rtoken.message };
+      } else {
+        const rerror = await rlogin.json();
+        return { status: rerror.status, message: rerror.message };
       }
     }
   );

@@ -1,5 +1,16 @@
+.sign-in-icon {
+    font-size: 5rem;
+  }
+  
+.input-remember {
+    display: flex;
+}
+
+.input-remember label {
+  margin-left: 0.25rem;
+}
+
 #errlogin {
-    display: none;
     color: red;
     font-weight: bold;
 }

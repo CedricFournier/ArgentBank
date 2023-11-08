@@ -11,7 +11,7 @@ function Signin() {
     const form = useRef();
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const token = useSelector((state) => state.user.token);
+    const status = useSelector((state) => state.user.status);
 
     const handleForm = async (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ function Signin() {
     }
     
     useEffect(() => {
-        if(token) {
+        if(status === 200) {
             navigate("/User")
         }
     })
@@ -42,7 +42,11 @@ function Signin() {
                             Remember me
                         </label>
                     </div>
-                    <p id="errlogin">Erreur dans l’identifiant ou le mot de passe</p>
+                    {status === 400 ? 
+                        <p id="errlogin">Erreur dans l’identifiant ou le mot de passe</p>
+                        : 
+                        null
+                    }
                     <Button type={BUTTON_TYPES.SUBMIT} class="button sign-in-button" content="Sign in"/>
                 </form>
             </section>

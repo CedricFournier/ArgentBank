@@ -9,8 +9,8 @@ const userSlice = createSlice({
     firstName: "",
     lastName: "",
     userName: "",
-    status: "void",
-    error: "",
+    status: "",
+    message: "",
   },
   reducers: {},
   extraReducers(builder) {
@@ -21,8 +21,8 @@ const userSlice = createSlice({
         state.firstName = action.payload.firstName
         state.lastName = action.payload.lastName
         state.userName = action.payload.userName
-        state.status = "success";
-        state.error = "";
+        state.status = action.payload.status
+        state.message = action.payload.message
       })
       .addCase(userLog.rejected, (state, action) => {
         state.status = "error";

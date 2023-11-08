@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 
+
 function Error() {
     return  (
         <main className="mainerror">

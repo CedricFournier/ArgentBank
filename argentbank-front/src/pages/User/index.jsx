@@ -2,6 +2,8 @@ import { useState } from "react";
 import EditName from "../../compoments/EditName"
 import Button, { BUTTON_TYPES } from "../../composants/Button"
 
+import "./style.scss";
+
 function User() {
     const account = [
         {   
