@@ -61,7 +61,7 @@ function EditName(props) {
                 class="button transaction-button" 
                 type ={BUTTON_TYPES.DEFAULT} 
                 content="Cancel" 
-                click={props.click} 
+                click={() => {dispatch({ type: "toggle"})}}
             />
         </div>
       </div>

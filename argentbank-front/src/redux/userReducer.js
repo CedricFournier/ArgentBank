@@ -11,6 +11,7 @@ const userSlice = createSlice({
     userName: "",
     status: "",
     message: "",
+    openedit: false
   },
   reducers: {},
   extraReducers(builder) {
@@ -38,10 +39,12 @@ const userSlice = createSlice({
       })
       .addCase(userEdit.fulfilled, (state, action) => {
         state.userName = action.payload.userName
+        state.openedit = !state.openedit
+      })
+      .addCase("toggle", (state) => {
+        state.openedit = !state.openedit
       })
   },
 });
 
 export default userSlice.reducer;
-
-export const selectCurrentToken = (state) => state.user.token;
