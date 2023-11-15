@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom"
 
-import "./style.scss";
-
 function Error() {
     return  (
         <main className="mainerror">

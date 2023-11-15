@@ -4,8 +4,6 @@ import Button, { BUTTON_TYPES } from '../../composants/Button';
 import Field, { FIELD_TYPES } from '../../composants/Field';
 import { userEdit } from '../../redux/apiuser';
 
-import "./style.scss";
-
 function EditName(props) {
     const form = useRef();
     const dispatch = useDispatch();
@@ -15,8 +13,11 @@ function EditName(props) {
     const lastName = useSelector((state) => state.user.lastName);
 
     const handleForm = async (e) => {
+        const pseudo = form.current[0].value;
+        const userName = ( pseudo ? pseudo : firstName )
+        console.log(userName)
         const postData ={
-            userName: form.current[0].value,
+            userName: userName,
             token: token
         };
         dispatch(userEdit(postData))

@@ -1,4 +1,17 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "../compoments/Account/style.scss";
+@import "../compoments/EditName/style.scss";
+@import "../compoments/Feature/style.scss";
+@import "../compoments/Footer/style.scss";
+@import "../compoments/Header/style.scss";
+@import "../composants/Button/style.scss";
+@import "../composants/Field/style.scss";
+@import "../pages/Error/style.scss";
+@import "../pages/Home/style.scss";
+@import "../pages/Signin/style.scss";
+@import "../pages/User/style.scss";
 
 html {
   font-family: Avenir, Helvetica, Arial, sans-serif;

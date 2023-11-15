@@ -3,8 +3,6 @@ import iconmoney from  '../../assets/img/icon-money.webp';
 import iconsecurity from  '../../assets/img/icon-security.webp'
 import Feature from '../../compoments/Feature';
 
-import "./style.scss";
-
 function Home() {
     return (
         <main>

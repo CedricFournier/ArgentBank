@@ -1,10 +1,8 @@
-import "./style.scss";
-
 function Feature(props) {
     return  (
-        <div className="feature-item">
-        <img src={props.src} alt={props.alt} className="feature-icon" />
-        <h3 className="feature-item-title">{props.title}</h3>
+        <div className="features-item">
+        <img src={props.src} alt={props.alt} className="features-icon" />
+        <h3 className="features-item-title">{props.title}</h3>
         <p>
             {props.content}
         </p>

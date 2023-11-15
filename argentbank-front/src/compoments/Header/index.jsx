@@ -2,8 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import argentBankLogo from  '../../assets/img/argentBankLogo.webp';
 
-import "./style.scss";
-
 function Header() {
     const dispatch = useDispatch()
     const navigate = useNavigate();

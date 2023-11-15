@@ -5,8 +5,6 @@ import { userLog } from "../../redux/apiuser";
 import Button, { BUTTON_TYPES } from "../../composants/Button"
 import Field, { FIELD_TYPES } from "../../composants/Field";
 
-import "./style.scss";
-
 function Signin() {
     const form = useRef();
     const dispatch = useDispatch();

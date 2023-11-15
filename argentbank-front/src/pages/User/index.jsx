@@ -3,21 +3,19 @@ import Account from "../../compoments/Account";
 import EditName from "../../compoments/EditName"
 import Button, { BUTTON_TYPES } from "../../composants/Button"
 
-import "./style.scss";
-
 function User() {
     const account = [
         {   
             "id" : "a1",
             "name" : "Checking",
-            "balance" : "2082.79",
+            "balance" : "2,082.79",
             "multiplier" : "8349",
             "description" : "Available Balance"
         },
         {
             "id" : "a2",
             "name" : "Savings",
-            "balance" : "10928.42",
+            "balance" : "10,928.42",
             "multiplier" : "6712",
             "description" : "Available Balance"
         },
@@ -31,7 +29,7 @@ function User() {
     ];
     const dispatch = useDispatch();
     const open = useSelector((state) => state.user.openedit);
-    console.log(open)
+    
     return (
         <main className="main bg-dark">
             <div className="header">

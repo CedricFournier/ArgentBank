@@ -1,17 +1,16 @@
 .diveditname {
-    width: 320px;
+    width: 330px;
     margin: 0 auto;
+    transition: height ease 500ms;
   }
 
 .h2editname {
-    color: white;
+    color: $white;
 }
 
 .labeleditname {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: white;
+    @include item-space;
+    color: $white;
 }
 
 .btnedit {

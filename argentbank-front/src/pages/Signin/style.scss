@@ -13,10 +13,9 @@
   
 .input-remember {
     display: flex;
-}
-
-.input-remember label {
-  margin-left: 0.25rem;
+    & label {
+      margin-left: 0.25rem;
+    }
 }
 
 #errlogin {

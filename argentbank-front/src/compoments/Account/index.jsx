@@ -1,7 +1,5 @@
 import Button from "../../composants/Button";
 
-import "./style.scss";
-
 function Account(props) {
     return  (
         <section className="account">

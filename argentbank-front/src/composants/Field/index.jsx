@@ -1,5 +1,3 @@
-import "./style.scss";
-
 export const FIELD_TYPES = {
     INPUT_TEXT: 1,  
     INPUT_MAIL: 2,
