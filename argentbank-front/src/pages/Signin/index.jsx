@@ -10,19 +10,22 @@ function Signin() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const status = useSelector((state) => state.user.status);
-
+    const useremail = window.localStorage.getItem('useremail');
+    const userpswd = window.localStorage.getItem('userpswd');
+    
     const handleForm = async (e) => {
         e.preventDefault();
         const postData = {
             email: form.current[0].value,
             password: form.current[1].value,
+            checked: form.current[2].checked,
         };
         dispatch(userLog(postData));
     }
     
     useEffect(() => {
         if(status === 200) {
-            navigate("/User")
+            navigate("/User");
         }
     })
     
@@ -32,8 +35,8 @@ function Signin() {
                 <i className="fa fa-user-circle sign-in-icon"></i>
                 <h1>Sign In</h1>
                 <form ref={form} onSubmit={e => handleForm(e)}>
-                    <Field type={FIELD_TYPES.INPUT_MAIL} content="Username" id="username" />
-                    <Field type={FIELD_TYPES.INPUT_PASSWORD} content="Password" id="password" />
+                    <Field type={FIELD_TYPES.INPUT_MAIL} content="Username" id="username" defaultValue={useremail}  />
+                    <Field type={FIELD_TYPES.INPUT_PASSWORD} content="Password" id="password" defaultValue={userpswd}  />
                     <div className="input-remember">
                         <label>
                             <input type="checkbox" id="remember-me" />

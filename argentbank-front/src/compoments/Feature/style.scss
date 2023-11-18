@@ -1,6 +1,9 @@
 .features {
   display: flex;
   flex-direction: column;
+  @include tablette {
+    flex-direction: row;
+  }
   &-icon {
     width: 100px;
     border: 10px solid #00bc77;
@@ -16,11 +19,5 @@
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
-  }
-}
-
-@media (min-width: 920px) {
-  .features {
-    flex-direction: row;
   }
 }

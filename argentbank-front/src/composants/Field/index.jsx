@@ -24,6 +24,7 @@ function Field(props) {
                 <input
                 type="mail"
                 id={props.id}
+                defaultValue={props.defaultValue}
                 pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                 required
                 />
@@ -34,6 +35,7 @@ function Field(props) {
                 <input
                 type="password"
                 id={props.id}
+                defaultValue={props.defaultValue}
                 required
                 />
             );

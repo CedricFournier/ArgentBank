@@ -13,9 +13,9 @@ function EditName(props) {
     const lastName = useSelector((state) => state.user.lastName);
 
     const handleForm = async (e) => {
+        e.preventDefault();
         const pseudo = form.current[0].value;
         const userName = ( pseudo ? pseudo : firstName )
-        console.log(userName)
         const postData ={
             userName: userName,
             token: token

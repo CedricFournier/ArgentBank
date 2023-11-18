@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const userLog = createAsyncThunk(
     "user/userLog",
-    async ({ email, password}) => {
+    async ({ email, password, checked}) => {
       const rlogin = await fetch("http://localhost:3001/api/v1/user/login", {
         method: "POST",
         headers: {
@@ -10,11 +10,16 @@ export const userLog = createAsyncThunk(
         },
         body: JSON.stringify({ email, password }),
       })
+      console.log(checked)
       if (rlogin.status === 200) {
         const rtoken = await rlogin.json();
         const token = rtoken.body.token;
         const userp = await userProfil(token);
-        const user = userp.body
+        const user = userp.body;
+        if (checked === true ) {
+          window.localStorage.setItem('useremail', email)
+          window.localStorage.setItem('userpswd', password)
+        }
         return { email: email, token: token, firstName: user.firstName,
           lastName: user.lastName, userName: user.userName,
            status: rtoken.status, message: rtoken.message };
