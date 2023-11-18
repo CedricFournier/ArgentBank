@@ -1,20 +1,3 @@
-@mixin item-rowcenter {
-    display: flex;
-    align-items: center;
-  }
-  
-  @mixin item-colcenter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  @mixin item-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   @mixin item-space {
     display: flex;
     align-items: center;
