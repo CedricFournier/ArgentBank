@@ -10,7 +10,6 @@ export const userLog = createAsyncThunk(
         },
         body: JSON.stringify({ email, password }),
       })
-      console.log(checked)
       if (rlogin.status === 200) {
         const rtoken = await rlogin.json();
         const token = rtoken.body.token;

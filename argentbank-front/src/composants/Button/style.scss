@@ -28,11 +28,14 @@
 }
 
 .btnedit button {
-width: 155px;
+  width: 206.4px;
 }
 
 @media (min-width: 720px) {
   .transaction-button {
     width: 200px;
+  }
+  .btnedit button {
+    width: 155px;
   }
 }
